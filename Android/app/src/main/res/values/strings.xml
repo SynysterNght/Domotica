@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TecnoUpsa</string>
+    <string name="title_activity_cls_maps">Map</string>
+    <string name="title_activity_generalp">generalp</string>
+</resources>

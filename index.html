@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>INTERFACE Company Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/3.9.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/3.9.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/3.9.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/3.9.0/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/3.9.0/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA15Ur499JuoOi01xQqUBnYm474XlVte1w",
+      authDomain: "domotica-9d4f0.firebaseapp.com",
+      databaseURL: "https://domotica-9d4f0.firebaseio.com",
+      projectId: "domotica-9d4f0",
+      storageBucket: "domotica-9d4f0.appspot.com",
+      messagingSenderId: "594633281122"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
+  <style>
+    /*///////////////BOTONES ON OFF////////////*/
+
+    .onoffswitch {
+      position: relative;
+      width: 80px;
+      left: 360px;
+      top: -40px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    .onoffswitch-checkbox {
+      display: none;
+    }
+
+    .onoffswitch-label {
+      display: block;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid #999999;
+      border-radius: 30px;
+    }
+
+    .onoffswitch-inner {
+      display: block;
+      width: 200%;
+      margin-left: -100%;
+      transition: margin 0.3s ease-in 0s;
+    }
+
+    .onoffswitch-inner:before,
+    .onoffswitch-inner:after {
+      display: block;
+      float: left;
+      width: 50%;
+      height: 25px;
+      padding: 0;
+      line-height: 25px;
+      font-size: 18px;
+      color: white;
+      font-family: Trebuchet, Arial, sans-serif;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+
+    .onoffswitch-inner:before {
+      content: "ON";
+      padding-left: 0px;
+      background-color: #35A19D;
+      color: #FFFFFF;
+    }
+
+    .onoffswitch-inner:after {
+      content: "OFF";
+      padding-right: 15px;
+      background-color: #FF6666;
+      color: #FFFFFF;
+      text-align: right;
+    }
+
+    .onoffswitch-switch {
+      display: block;
+      width: 25px;
+      margin: 0px;
+      background: #FFFFFF;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 55px;
+      border: 2px solid #999999;
+      border-radius: 30px;
+      transition: all 0.3s ease-in 0s;
+    }
+
+    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+      margin-left: 0;
+    }
+
+    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+      right: 0px;
+    }
+    /*/////////////////Botones ON OFF///////////////////*/
+
+    body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .jumbotron {
+      background-color: #208080;
+      color: #fff;
+      padding: 100px 25px;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .container-fluid {
+      padding: 60px 50px;
+    }
+
+    .bg-grey {
+      background-color: #f6f6f6;
+    }
+
+    .logo-small {
+      color: #208080;
+      font-size: 50px;
+    }
+
+    .logo {
+      color: #208080;
+      font-size: 200px;
+    }
+
+    .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+    }
+
+    .carousel-control.right,
+    .carousel-control.left {
+      background-image: none;
+      color: #208080;
+    }
+
+    .carousel-indicators li {
+      border-color: #208080;
+    }
+
+    .carousel-indicators li.active {
+      background-color: #208080;
+    }
+
+    .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+    }
+
+    .item span {
+      font-style: normal;
+    }
+
+    .textoboton {
+      padding: 25px;
+      display: inline-block;
+    }
+
+    .panel {
+      border: 1px solid #208080;
+      border-radius: 0 !important;
+      transition: box-shadow 0.5s;
+    }
+
+    .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+    }
+
+    .panel-footer .btn:hover {
+      border: 1px solid #f4511e;
+      background-color: #fff !important;
+      color: #4f4e4e;
+    }
+
+    .panel-heading {
+      color: #fff !important;
+      background-color: #208080 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .panel-heading2 {
+      color: #fff !important;
+      background-color: #208080 !important;
+      padding: 10px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .panel-footer {
+      background-color: white !important;
+    }
+
+    .panel-footer h3 {
+      font-size: 32px;
+    }
+
+    .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #f4511e;
+      color: #fff;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      background-color: #208080;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .navbar li a,
+    .navbar .navbar-brand {
+      color: #fff !important;
+    }
+
+    .navbar-nav li a:hover,
+    .navbar-nav li.active a {
+      color: #208080 !important;
+      background-color: #fff !important;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+
+    footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #208080;
+    }
+
+    .slideanim {
+      visibility: hidden;
+    }
+
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+    }
+
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      }
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+      .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .logo {
+        font-size: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+        <a class="navbar-brand" href="#myPage">BIENVENIDO!</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#control">CONTROL</a></li>
+          <li><a href="#plano">PLANO</a></li>
+          <li><a href="#proyecto">PROYECTO</a></li>
+          <li><a href="#contact">CONTACTOS</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+    <h1>INTERFACE</h1>
+    <p>NOS ESPECIALIZAMOS EN "DOMOTIX"</p>
+
+  </div>
+
+  <!-- Container (Control Section) -->
+  <div id="control" class="container-fluid">
+    <div class="text-center">
+      <h2>CONTROL</h2>
+    </div>
+
+    <div class="row slideanim">
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>GENERAL</h1>
+          </div>
+          <div class="panel-body">
+
+            <br>
+            <p><del>Luces</del></p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesFront">
+              <label class="onoffswitch-label" for="checkLucesFront">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+            <p>Puerta Principal</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkPuertaP">
+              <label class="onoffswitch-label" for="checkPuertaP">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+            <!--<p>Puerta Trasera</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkPuertaT">
+              <label class="onoffswitch-label" for="checkPuertaT">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>-->
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>SALA</h1>
+          </div>
+          <div class="panel-body">
+
+            <br>
+            <p>Luces</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesS">
+              <label class="onoffswitch-label" for="checkLucesS">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+         <!--   <p>Ventilador</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkVentS">
+              <label class="onoffswitch-label" for="checkVentS">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>  -->
+
+
+            <p>Ventana</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkWinS">
+              <label class="onoffswitch-label" for="checkWinS">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>RECAMARA 1</h1>
+          </div>
+          <div class="panel-body">
+
+            <br>
+            <p>Luces</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesR1">
+              <label class="onoffswitch-label" for="checkLucesR1">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+            <p>Ventilador</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkVentR1">
+              <label class="onoffswitch-label" for="checkVentR1">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+            <p>Ventana</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkWinR1">
+              <label class="onoffswitch-label" for="checkWinR1">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row slideanim">
+
+
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>RECAMARA 2</h1>
+          </div>
+          <div class="panel-body">
+            <br>
+            <p>Luces</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesR2">
+              <label class="onoffswitch-label" for="checkLucesR2">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+            <p>Ventilador</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkVentR2">
+              <label class="onoffswitch-label" for="checkVentR2">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+            <p>Ventana</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkWinR2">
+              <label class="onoffswitch-label" for="checkWinR2">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h1>COCINA</h1>
+          </div>
+          <div class="panel-body">
+            <br>
+            <p>Luces</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesCS">
+              <label class="onoffswitch-label" for="checkLucesCS">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+            <p>Ventilador</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkVentC">
+              <label class="onoffswitch-label" for="checkVentC">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading2">
+            <h3>CUARTO DE SERVICIO</h3>
+          </div>
+          <div class="panel-body">
+            <br>
+            <p>Luces</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesServ">
+              <label class="onoffswitch-label" for="checkLucesServ">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading2">
+            <h3>BAÑO</h3>
+          </div>
+          <div class="panel-body">
+            <br>
+            <p>Luces</p>
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="checkLucesB">
+              <label class="onoffswitch-label" for="checkLucesB">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+
+  <!-- Container (Planos Section) -->
+  <div id="plano" class="container-fluid text-center">
+    <h2>PLANOS</h2>
+    <h4>DONDE TRABAJAMOS</h4>
+    <br>
+    <img src="https://firebasestorage.googleapis.com/v0/b/domotica-9d4f0.appspot.com/o/planoMaqueta.jpg?alt=media&token=64fd1966-a287-4287-b389-875d0b171173">
+
+
+
+
+
+
+
+    <!-- Container (Proyecto Section) -->
+    <div id="proyecto" class="container-fluid">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>SERVICIO</h2><br>
+          <h4>Tenga la oportunidad de tener el control de su casa en la palma de su mano ya sea en su oficina o tomando un café
+            en las bahamas, sea cual sea el lugar o la hora de la ocasión, usted siempre tendra el control!
+          </h4><br>
+          <p>La mayor prioridad es lograr la comodidad, seguridad y calidad de servicio para el cliente, teniendo protocolos
+            de redes para seguridad informática al momento de ser manipulados dichos elementos del hogar a través del internet
+            (mediante pagina web y aplicación movil)
+          </p>
+          <br>
+        </div>
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-signal logo"></span>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid bg-grey">
+      <div class="row">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        </div>
+        <div class="col-sm-8">
+          <br>
+          <h4>Actualmente vivimos en una epoca donde todas las personas tenemos la necesidad de estar
+            conectados a todo los que nos rodea, desde los mas simple hasta lo mas complejo. La domotica nos da la oportunidad
+            de tener nuestro hogar automatizado de forma completa y conforme a su necesidad, los limites los pone usted!
+          </h4><br>
+          <p>“¡No tenga miedo! ¡Tenga la tranquilidad de tener su hogar automatizado! Este es el momento
+            para avanzar hacia el futuro de los hogares inteligentes!.” - Interface
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-grey">
+      <h2 class="text-center">CONTACTOS</h2>
+      <div class="row">
+        
+        <div class="col-sm-5">
+         
+          <p>INTERFACE INC.</p>
+          
+         <p><span class="glyphicon glyphicon-map-marker"></span> Santa Cruz, Bolivia</p>
+          <p><span class="glyphicon glyphicon-phone"></span> Julio Andre Alba Porcel</p>
+          <p><span class="glyphicon glyphicon-phone"></span> Diego Michael Zabala Montengro</p>
+          <p><span class="glyphicon glyphicon-phone"></span> Jürgen Von Borries Mounzon</p>
+          <p><span class="glyphicon glyphicon-phone"></span> Adan Ardaya Dominguez</p>
+          <p><span class="glyphicon glyphicon-phone"></span> Christian Alejandro Yabeta Parada</p>
+          <p><span class="glyphicon glyphicon-phone"></span> Pedro Abasto Troncoso</p>
+          <p><span class="glyphicon glyphicon-envelope"></span> interface.cadjj@gmail.com</p>
+        </div>
+         <img src="https://firebasestorage.googleapis.com/v0/b/domotica-9d4f0.appspot.com/o/Image%202?alt=media&token=886b4584-6a4a-4213-968c-8bc16913faa7" width="300" height="300" align="left">
+         
+        <img src="https://firebasestorage.googleapis.com/v0/b/domotica-9d4f0.appspot.com/o/upsa.png?alt=media&token=ec60639e-e375-4a2b-8800-8c15202e0e52">
+      </div>
+    </div>
+
+
+
+
+
+    <footer class="container-fluid text-center">
+      <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 900, function () {
+
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+
+        $(window).scroll(function () {
+          $(".slideanim").each(function () {
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + 600) {
+              $(this).addClass("slide");
+            }
+          });
+        });
+      })
+    </script>
+
+
+    <script>
+      // último estado
+
+      /////SALA///////////
+      var dbs = firebase.database().ref('Sala');
+      dbs.on('value', function (data) {
+        $("#checkLucesS").prop('checked', data.val().LucesS);
+
+        $("#checkVentS").prop('checked', data.val().VentS);
+
+        $("#checkWinS").prop('checked', data.val().WinS);
+
+      });
+      ///////////////
+
+      //////////GENERAL////////
+      var dbg = firebase.database().ref('General');
+
+      dbg.on('value', function (data) {
+        $("#checkLucesFront").prop('checked', data.val().LucesFront);
+
+        $("#checkPuertaP").prop('checked', data.val().PuertaP);
+        $("#checkPuertaT").prop('checked', data.val().PuertaT);
+      });
+      ////////////////////
+
+      /////////////COCINA/////////
+
+      var dbc = firebase.database().ref('Cocina');
+      dbc.on('value', function (data) {
+        $("#checkLucesCS").prop('checked', data.val().LucesCS);
+
+        $("#checkVentC").prop('checked', data.val().VentC);
+
+      });
+
+      ///////////////////////
+
+      /////////////RECAMARA 1/////////
+
+      var dbr1 = firebase.database().ref('Recamara 1');
+      dbr1.on('value', function (data) {
+        $("#checkLucesR1").prop('checked', data.val().LucesR1);
+
+        $("#checkVentR1").prop('checked', data.val().VentR1);
+
+
+        $("#checkWinR1").prop('checked', data.val().WinR1);
+
+      });
+
+      ///////////////////////
+
+      /////////////RECAMARA 2/////////
+
+      var dbr2 = firebase.database().ref('Recamara 2');
+      dbr2.on('value', function (data) {
+        $("#checkLucesR2").prop('checked', data.val().LucesR2);
+
+        $("#checkVentR2").prop('checked', data.val().VentR2);
+
+
+        $("#checkWinR2").prop('checked', data.val().WinR2);
+      });
+
+      ///////////////////////
+
+
+      /////////////CUARTO DE SERVICIO/////////
+
+      var dbcs = firebase.database().ref('Cuarto de Servicio');
+      dbcs.on('value', function (data) {
+        $("#checkLucesServ").prop('checked', data.val().LucesServ);
+      });
+
+      ///////////////////////
+
+      /////////////BAÑO/////////
+
+      var dbb = firebase.database().ref('Bano');
+      dbb.on('value', function (data) {
+        $("#checkLucesB").prop('checked', data.val().LucesB);
+
+
+
+      });
+
+      ///////////////////////
+
+
+
+
+
+      ////////LUCES//////////
+      $("#checkLucesR1").click(function () {
+        var estado = $(this).is(':checked');
+        dbr1.update({
+          LucesR1: estado
+        });
+      });
+
+      $("#checkLucesR2").click(function () {
+        var estado = $(this).is(':checked');
+        dbr2.update({
+          LucesR2: estado
+        });
+      });
+
+      $("#checkLucesB").click(function () {
+        var estado = $(this).is(':checked');
+        dbb.update({
+          LucesB: estado
+        });
+      });
+
+      $("#checkLucesServ").click(function () {
+        var estado = $(this).is(':checked');
+        dbcs.update({
+          LucesServ: estado
+        });
+      });
+
+      $("#checkLucesFront").click(function () {
+        var estado = $(this).is(':checked');
+        dbg.update({
+          LucesFront: estado
+        });
+      });
+
+
+      $("#checkLucesCS").click(function () {
+        var estado = $(this).is(':checked');
+        dbc.update({
+          LucesCS: estado
+        });
+      });
+
+
+      $("#checkLucesS").click(function () {
+        var estado = $(this).is(':checked');
+        dbs.update({
+          LucesS: estado
+        });
+      });
+      //////////////
+
+      ////VENTILADORES////
+      $("#checkVentR1").click(function () {
+        var estado = $(this).is(':checked');
+        dbr1.update({
+          VentR1: estado
+        });
+      });
+
+      $("#checkVentR2").click(function () {
+        var estado = $(this).is(':checked');
+        dbr2.update({
+          VentR2: estado
+        });
+      });
+
+      $("#checkVentC").click(function () {
+        var estado = $(this).is(':checked');
+        dbc.update({
+          VentC: estado
+        });
+      });
+
+
+
+      $("#checkVentS").click(function () {
+        var estado = $(this).is(':checked');
+        dbs.update({
+          VentS: estado
+        });
+      });
+      ///////////////
+
+      /////VENTANAS/////
+
+      $("#checkWinR1").click(function () {
+        var estado = $(this).is(':checked');
+        dbr1.update({
+          WinR1: estado
+        });
+      });
+
+      $("#checkWinR2").click(function () {
+        var estado = $(this).is(':checked');
+        dbr2.update({
+          WinR2: estado
+        });
+      });
+
+
+
+
+      $("#checkWinS").click(function () {
+        var estado = $(this).is(':checked');
+        dbs.update({
+          WinS: estado
+        });
+      });
+
+      ////////////
+
+      //////////Puertas////
+
+      $("#checkPuertaP").click(function () {
+        var estado = $(this).is(':checked');
+        dbg.update({
+          PuertaP: estado
+        });
+      });
+
+
+      $("#checkPuertaT").click(function () {
+        var estado = $(this).is(':checked');
+        dbg.update({
+          PuertaT: estado
+        });
+      });
+
+//////////////
+    </script>
+
+</body>
+
+</html>

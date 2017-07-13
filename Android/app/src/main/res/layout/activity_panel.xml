@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codigotigre.tecnoupsa.panel">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="22dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="164dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginLeft="40dp"
+                android:text="General"
+                android:textSize="20dp" />
+
+            <Switch
+                android:id="@+id/SLucesFront"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+
+            <Switch
+                android:id="@+id/SPuertaP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Puerta Principal" />
+
+            <Switch
+                android:id="@+id/SPuertaT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Puerta Trasera" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="141dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_weight="0.25">
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginLeft="60dp"
+                android:text="Sala"
+                android:textSize="20dp" />
+
+            <Switch
+                android:id="@+id/SLucesS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+
+            <Switch
+                android:id="@+id/SWinS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventana" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="220dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="20dp"
+                android:layout_height="wrap_content"
+                android:text="Recamara1" />
+
+            <Switch
+                android:id="@+id/SLucesR1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+
+            <Switch
+                android:id="@+id/SWinR1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventana" />
+
+            <Switch
+                android:id="@+id/SVentR1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventilador" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_weight="0.41">
+
+            <TextView
+                android:id="@+id/Recamara2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recamara2"
+                android:layout_marginLeft="40dp"
+                android:textSize="20dp" />
+
+            <Switch
+                android:id="@+id/SLucesR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+
+            <Switch
+                android:id="@+id/SWinR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventana" />
+
+            <Switch
+                android:id="@+id/SVentR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventilador" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="310dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:layout_width="146dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_weight="0.34">
+
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="Cocina"
+                android:textSize="20dp" />
+
+            <Switch
+                android:id="@+id/SLucesCS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+
+            <Switch
+                android:id="@+id/SVentC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventilador" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Cuarto de Servicio"
+
+                android:textSize="20dp" />
+
+            <Switch
+                android:id="@+id/SLucesServ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:text="Bano"
+                android:textSize="20dp" />
+
+            <Switch
+                android:id="@+id/SLucesB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Luces" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
